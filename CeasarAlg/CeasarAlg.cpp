@@ -25,8 +25,14 @@ int main()
 		cout << "Function not found" << endl;
 		return 1;
 	}
-	char rawText[] = "Roses are red, violets are blue";
-	int key = 1;
+	int key;
+	cout << "Enter the encryption/decryption key (integer): ";
+	cin >> key;
+	cin.ignore(); 
+
+	cout << "Enter the text to encrypt/decrypt (max 1000 characters): ";
+	char rawText[1001];
+	cin.getline(rawText, 1001);
 	char* encryptedText = encrypt_ptr(rawText, key);
 	cout << "Encrypted Text: " << encryptedText << endl;
 
