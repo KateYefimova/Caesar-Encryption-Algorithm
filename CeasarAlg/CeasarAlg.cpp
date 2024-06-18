@@ -1,11 +1,12 @@
 ﻿#include <windows.h>
 #include <iostream>
+#include "Header1.h"
 using namespace std;
 
 
 int main()
 {
-	HINSTANCE handle = LoadLibrary(TEXT("lib.dll"));
+	/*HINSTANCE handle = LoadLibrary(TEXT("lib.dll"));
 	if (handle == nullptr || handle == INVALID_HANDLE_VALUE)
 	{
 		cout << "Lib not found" << endl;
@@ -43,7 +44,20 @@ int main()
 	// Deallocate memory
 	delete[] encryptedText;
 	delete[] decryptedText;
-	FreeLibrary(handle);
+	FreeLibrary(handle);*/
+	char text[] = "Hello, World!";
+	int key = 3;
+
+	char* encryptedText = encrypt(text, key);
+	cout << "Encrypted: " << encryptedText << endl;
+
+	char* decryptedText = decrypt(encryptedText, key);
+	cout << "Decrypted: " << decryptedText << endl;
+
+	delete[] encryptedText;
+	delete[] decryptedText;
+
+
 	return 0;
 }
 
